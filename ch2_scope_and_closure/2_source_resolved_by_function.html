@@ -1,0 +1,22 @@
+<div id="div0">Click me! DIV 0</div>
+<div id="div1">Click me! DIV 1</div>
+<div id="div2">Click me! DIV 2</div>
+<script>
+    function setDivClick(index) {
+        document.getElementById("div" + index).addEventListener(
+            "click",
+            function () {
+                alert("You clicked div #" + index);
+            },
+            false);
+    }
+    var i, len = 3;
+    for (i = 0; i < len; i++) {
+        setDivClick(i);
+    }
+
+    // setDivClick function 에서 스코프가 생성된다.
+    // <div>에 클릭이벤트가 발생하여 콜백 함수가 호출될 때
+    // 콜백 함수는 setDivClick 스코프에 설정되어 있는 변수 index를 참조한다.
+    // 콜백 함수에서 index를 참조하기 때문에 setDivClick 스코프가 유지된다.
+</script>

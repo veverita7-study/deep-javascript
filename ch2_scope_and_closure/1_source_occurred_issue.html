@@ -1,0 +1,16 @@
+<div id="div0">Click me! DIV 0</div>
+<div id="div1">Click me! DIV 1</div>
+<div id="div2">Click me! DIV 2</div>
+<script>
+    var i, len = 3;
+    for (i = 0; i < len; i++) {
+        document.getElementById("div" + i).addEventListener("click", function () {
+            alert("You clicked div #" + i);
+        }, false);
+    }
+
+    // 전부 "You clicked div #3" 이 뜬다.
+    // 이유는 <div>에 클릭 이벤트가 발생하여 콜백 함수가 호출될 때에
+    // 콜백 함수는 글로벌 스코프에 설정되어 있는 변수 i를 참조한다.
+    // 변수 i는 for 문이 종료하고 나서도 계속 유지되어 3을 리턴한다.
+</script>

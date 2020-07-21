@@ -1,0 +1,20 @@
+<div id="div0">Click me! DIV 0</div>
+<div id="div1">Click me! DIV 1</div>
+<div id="div2">Click me! DIV 2</div>
+<script>
+    var i, len = 3;
+    for (i = 0; i < len; i++) {
+        document.getElementById("div" + i).addEventListener(
+            "click",
+            (function (index) { // iife
+                return function () {
+                    alert("You clicked div #" + index);
+                }
+            }(i)),
+            false);
+    }
+
+    // iife는 즉시 호출 함수 표현식의 줄임말이다.
+    // 스코프 체인을 생성해서 클로저를 활용하는데 많이 쓰인다.
+    // return function () 에서 index 변수를 상위 스코프 체인에 추가한다.
+</script>

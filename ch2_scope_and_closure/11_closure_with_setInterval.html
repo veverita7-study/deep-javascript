@@ -1,0 +1,29 @@
+<button id="btnToggle">Toggle Pending</button>
+<div id="divPending">Pending</div>
+<script>
+    (function () {
+        var pendingInterval = false,
+            div = document.getElementById("divPending"),
+            btn = document.getElementById("btnToggle");
+
+        function startPending() {
+            if (div.innerHTML.length > 13) {
+                div.innerHTML = "Pending";
+            }
+            div.innerHTML += ".";
+        }
+
+        btn.addEventListener("click", function () {
+            if (!pendingInterval) {
+                pendingInterval = setInterval(startPending, 500);
+            } else {
+                clearInterval(pendingInterval);
+                pendingInterval = false;
+            }
+        });
+    }());
+
+    // 자바스크립트 라이브러리 또는 모듈의 기본 형태와 비슷한다.
+    // pendingInterval, div, btn은 외부에서 접근할 수 없다.
+    // 클로저는 startpending과 setInterval에서 발생한다.
+</script>
